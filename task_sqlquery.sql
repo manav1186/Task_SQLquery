@@ -1,5 +1,4 @@
 use employee;
-show tables;
 
 CREATE TABLE EMPLOYEE (
     emp_id INT PRIMARY KEY,
@@ -28,7 +27,7 @@ INSERT INTO MANAGER (emp_id, manager_name) VALUES
 (2, 'Frank Thomas');      -- Manager with emp_id 2
 
 select * from employee;
-select * from manager; --
+select * from manager; 
 
 #Question1 - get all employees under each manager
 
@@ -78,7 +77,7 @@ SELECT
 FROM 
     EMPLOYEE
 WHERE 
-    manager_id IS NULL AND emp_id NOT IN (SELECT emp_id FROM MANAGER);
+    manager_id IS NULL AND emp_id NOT IN (SELECT emp_id FROM MANAGER); --ensuring there is no manager and refraining from getting manager names from employees
     
 #Question 5 - Write a function to get full name (firstname + lastname)
 
@@ -90,7 +89,7 @@ deterministic
 BEGIN
     DECLARE full_name VARCHAR(100);
     
-    SELECT CONCAT(first_name, ' ', last_name) INTO full_name
+    SELECT CONCAT(first_name, ' ', last_name) INTO full_name --concatenating the first and last name
     FROM EMPLOYEE
     WHERE emp_id = emp_id
     LIMIT 1; 
